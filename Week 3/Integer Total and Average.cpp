@@ -17,13 +17,13 @@ int main() {
     }
 
     if (count == 0) {
-        cout << "No numbers entered except 0\n";
+        cout << "No numbers entered except 0 \n";
     } else {
-        double average = static_cast<double>(sum) / count;
-        cout << "Number of positives: " << positiveNumbers << '\n';
-        cout << "Number of negatives: " << negativeNumbers << '\n';
-        cout << "Total: " << sum << '\n';
-        cout << "Average: " << average << '\n';
+        double average = sum / count;
+        cout << "Number of positives: " << positiveNumbers << "\n";
+        cout << "Number of negatives: " << negativeNumbers << "\n";
+        cout << "Total: " << sum << "\n";
+        cout << "Average: " << average << "\n";
     }
     return 0;
 }
