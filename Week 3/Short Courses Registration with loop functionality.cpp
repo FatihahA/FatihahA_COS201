@@ -5,17 +5,20 @@
 using namespace std;
 
 int main(){
+    bool continueReg = true;
+
+    while (continueReg){
     // Collect User Name
     string name;
     cout<<"Enter your full name:";
-    getline(cin, name);
+    cin>>name;
 
     // Is the user a PAU student
     bool PAUStudent;
     cout<<"Are you a PAU student? (1 for True, 0 for False):";
     int flag;
     cin>>flag;
-    PAUStudent = (flag == 1);
+    PAUStudent = (flag != 0);
 
     // Display Courses and collect course choice
     cout<<"Pick a course to register for:"<<endl;
@@ -105,9 +108,10 @@ int main(){
 
     // Calculate total fees
     double TotalLocationFee = locationFee * courseDuration;
+    double TotalFee = courseFee + TotalLocationFee;
 
     //Applying discounts
-    if (PAUStudent && (location == 1 || location == 2)){
+    if (PAUStudent && (location == 2 || location == 3)){
         double DiscountedLocationFee = TotalLocationFee * 0.05;
         TotalLocationFee -= DiscountedLocationFee;
     }
@@ -117,29 +121,25 @@ int main(){
         courseFee -= DiscountedCourseFee;
     }
 
-    double TotalFee = courseFee + TotalLocationFee;
-
     // Random Promo
     srand(time(0));
     int promovalidity = (rand() % 100) + 1; // Random number between 1 and 100
-    cout<<"Random draw: "<<promovalidity<<endl;
     if (promovalidity == 7 || promovalidity == 77){
-        TotalFee -= 500;
+        double PromoDiscount = TotalFee - 500;
         cout<<"Congratulations! You have received a promotional discount of 500."<<endl;
-    }
-    else {
-        cout<<"No promotional discount applied."<<endl;
     }
 
     // Output Information
-    cout<<endl;
     cout<<"Registration Summary for "<<name<<":"<<endl;
     cout<<"Name: "<<name<<endl;
     cout<<"PAU Student: "<<(PAUStudent ? "Yes" : "No")<<endl;
     cout<<"Course Choice: "<<courseChoice<<endl;
-    cout<<"Registration fee: "<<courseFee<<endl;
-    cout<<"Lodging: "<<locationFee<<" X "<<courseDuration<<" = "<<TotalLocationFee<<endl;
-    cout<<"Total Fee: "<<TotalFee<<endl;
+}
 
-
+bool regValue;
+cout<<"Do you want to register another student? (1 for Yes, 0 for No): ";
+cin>>regValue;
+if (regValue == 0){
+    continueReg = false;
+}
 }
