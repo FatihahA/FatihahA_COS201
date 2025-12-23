@@ -2,17 +2,17 @@
 using namespace std;
 
 int main() {
-    int n;
+    int num;
     int positiveNumbers = 0;
     int negativeNumbers = 0;
     long long sum = 0;
     int count = 0;
 
     cout << "Enter integers (enter 0 to end  the program): ";
-    while (cin >> n && n != 0){
-        if (n > 0) ++positiveNumbers;
+    while (cin >> num && num != 0){
+        if (num > 0) ++positiveNumbers;
         else ++negativeNumbers;
-        sum += n;
+        sum += num;
         ++count;
     }
 

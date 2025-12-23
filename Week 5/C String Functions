@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cstring>   // for strcpy, strcat, strncat, strcmp
+#include <cstdlib>   // for atoi, atof
+using namespace std;
+
+int main() {
+    char str1[50] = "Hello";
+    char str2[] = " World";
+
+    strcat(str1, str2);   
+    cout << "After strcat: " << str1 << endl;
+
+    char str3[50] = "Good";
+    strncat(str3, " Morning", 4); 
+    cout << "After strncat: " << str3 << endl;
+
+    char a[] = "Apple";
+    char b[] = "Banana";
+
+    if (strcmp(a, b) == 0) {
+        cout << "Strings are equal" << endl;
+    } else if (strcmp(a, b) < 0) {
+        cout << a << " comes before " << b << endl;
+    } else {
+        cout << a << " comes after " << b << endl;
+    }
+
+    char numStr1[] = "123";
+    char numStr2[] = "45.67";
+
+    int num1 = atoi(numStr1);
+    double num2 = atof(numStr2);
+
+    cout << "Integer value: " << num1 << endl;
+    cout << "Double value: " << num2 << endl;
+
+    return 0;
+}
